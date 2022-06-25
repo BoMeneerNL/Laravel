@@ -13,9 +13,9 @@ class AnimeController extends Controller
         $animes = DB::select("SELECT * FROM animes");
         return view('animelist', ['animes' => $animes]);
     }
-    public function destroy($animeid)
+    public static function destroy($animeid)
     {
-        DB::statement("DELETE FROM animes WHERE animeid = $animeid");
+        DB::delete("DELETE FROM animes WHERE animeid = ? LIMIT 1", [$animeid]);
     }
     public function edit($animeid)
     {

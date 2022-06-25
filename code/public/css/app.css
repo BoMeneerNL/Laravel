@@ -511,6 +511,9 @@ video {
 .table {
   display: table;
 }
+.w-auto {
+  width: auto;
+}
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnimeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','\App\Http\Controllers\AnimeController@index');
-Route::get('/anime/{animeid}',function (){
-    return view('home');
+Route::get('/anime/{animeid}/delete',function ($animeid){
+    AnimeController::destroy($animeid);
+});
+Route::get('/edit/{animeid}',function ($animeid){
+    return view('edit',['animeid'=>$animeid]);
 });
 Route::get('/test','\App\Http\Controllers\AnimeController@index');

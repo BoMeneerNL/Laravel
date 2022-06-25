@@ -11,25 +11,30 @@
 
 </head>
 <body class="antialiased">
-<table class="table">
+<table class="table w-auto">
     <thead>
     <tr>
+        <th scope="col">Anime</th>
         <th scope="col">Animenaam Engels</th>
         <th scope="col">Animenaam Japans</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Uigezonden van-tot</th>
+        <th scope="col">Acties</th>
     </tr>
     </thead>
     <tbody>
     @foreach($animes as $anime)
         <tr>
-        <th scope="row">1</th>
+        <th scope="row">{{$anime->AnimeNaam}}</th>
+        <td>{{$anime->AnimeNameEnglish}}</td>
         <td>{{$anime->AnimeNameJPSymbols}} ({{$anime->AnimeNaam}})</td>
-        <td>Otto</td>
-            <td><button onclick="@@method(AnimeController::destroy($anime->$AnimeID))">edit</button> <button>delete</button></td>
+        <td>{{substr($anime->Uitgavejaar,0,4)}} - {{substr($anime->Uitgavejaar,0,4)}}</td>
+            <td><button onclick="">edit</button> <button onclick="Delete({{$anime->AnimeID}})">delete</button></td>
           </tr>
     @endforeach
     </tbody>
 </table>
+<script>
+    function Delete(a){fetch("http://localhost:8000/anime/"+a+"/delete").then(()=>{window.location.reload()})}
+</script>
 </body>
 </html>
