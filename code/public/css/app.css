@@ -508,11 +508,29 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.flex {
+  display: flex;
+}
 .table {
   display: table;
 }
+.grid {
+  display: grid;
+}
 .w-auto {
   width: auto;
+}
+.w-1\/4 {
+  width: 25%;
+}
+.w-full {
+  width: 100%;
+}
+.w-2\/4 {
+  width: 50%;
+}
+.justify-center {
+  justify-content: center;
 }
 .antialiased {
   -webkit-font-smoothing: antialiased;

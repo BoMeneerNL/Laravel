@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
     <link href="{{ asset('css/app1.css') }}" rel="stylesheet">
-    <title>Laravel</title>
+    <title>Anime List</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
@@ -24,11 +24,11 @@
     <tbody>
     @foreach($animes as $anime)
         <tr>
-        <th scope="row">{{$anime->AnimeNaam}}</th>
-        <td>{{$anime->AnimeNameEnglish}}</td>
-        <td>{{$anime->AnimeNameJPSymbols}} ({{$anime->AnimeNaam}})</td>
-        <td>{{substr($anime->Uitgavejaar,0,4)}} - {{substr($anime->Uitgavejaar,0,4)}}</td>
-            <td><button onclick="">edit</button> <button onclick="Delete({{$anime->AnimeID}})">delete</button></td>
+        <th scope="row">{{$anime->AnimeNaam !== "<null>" ?$anime->AnimeNaam: "-"}}</th>
+        <td>{{$anime->AnimeNameEnglish !== "<null>" ?$anime->AnimeNameEnglish: "-"}}</td>
+        <td>{{$anime->AnimeNameJPSymbols !== "<null>" ?$anime->AnimeNameJPSymbols: "-"}}</td>
+        <td>{{substr($anime->Uitgavejaar,0,4)}}-{{substr($anime->Uitgavejaar,4,4)}}</td>
+            <td><button onclick="window.location.replace('/edit/{{$anime->AnimeID}}')">edit</button> <button onclick="Delete({{$anime->AnimeID}})">delete</button></td>
           </tr>
     @endforeach
     </tbody>
