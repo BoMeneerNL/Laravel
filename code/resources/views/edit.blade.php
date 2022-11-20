@@ -32,6 +32,6 @@
     <button type="submit" onclick="editdone()" class="btn btn-primary">Edit</button>
 </div>
 <script>
-    function editdone(){let b=document.getElementById("AnimeName").value,c=document.getElementById("AnimeNameEN").value,d=document.getElementById("AnimeNameJP").value,a=document.getElementById("Dates").value;fetch("http://localhost:8000/cedat/{{$anime->AnimeID}}/"+b+"/"+c+"/"+d+"/"+(a=parseInt(a=a.replace("-","")))).then(()=>{window.location.replace("/")})}
+    function editdone(){let b=document.getElementById("AnimeName").value,c=document.getElementById("AnimeNameEN").value,d=document.getElementById("AnimeNameJP").value,a=document.getElementById("Dates").value;fetch("http://localhost:8000/cedat/{{$anime->AnimeID}}/"+b+"/"+c+"/"+d+"/"+(parseInt(a.replace("-", "")))).then(()=>{window.location.replace("/")})}
 </script>
 </body>

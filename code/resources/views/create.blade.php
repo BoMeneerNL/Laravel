@@ -31,7 +31,7 @@
     <button type="submit" onclick="Create()" class="btn btn-primary">Add the new anime</button>
 </div>
 <script>
-    function Create(){let b=document.getElementById("AnimeName").value,c=document.getElementById("AnimeNameEN").value,d=document.getElementById("AnimeNameJP").value,a=document.getElementById("Dates").value;fetch("http://localhost:8000/ccdat/"+b+"/"+c+"/"+d+"/"+(a=parseInt(a.replace("-","")))).then(()=>{window.location.replace("/")})}
+    function Create(){let b=document.getElementById("AnimeName").value,c=document.getElementById("AnimeNameEN").value,d=document.getElementById("AnimeNameJP").value,a=document.getElementById("Dates").value;fetch("http://localhost:8000/ccdat/"+b+"/"+c+"/"+d+"/"+(parseInt(a.replace("-", "")))).then(()=>{window.location.replace("/")})}
 
 </script>
 </body>

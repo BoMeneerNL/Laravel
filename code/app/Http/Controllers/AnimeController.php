@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 
@@ -12,7 +14,7 @@ class AnimeController extends Controller
         DB::table('animes')->where('animeid', $animeid)->update(['AnimeNaam' => $name, 'AnimeNameEnglish' => $nameEN, 'AnimeNameJPSymbols' => $nameJPS, 'Uitgavejaar' => $dates]);
     }
 
-    public function index()
+    public function index(): Factory|View|Application
     {
         $animes = DB::select("SELECT * FROM animes");
         return view('animelist', ['animes' => $animes]);
@@ -21,12 +23,13 @@ class AnimeController extends Controller
     {
         DB::delete("DELETE FROM animes WHERE animeid = ? LIMIT 1", [$animeid]);
     }
-    public static function edit($animeid)
+    public static function edit($animeid): Factory|View|Application
     {
         $anime = DB::select("SELECT * FROM animes WHERE animeid = ? LIMIT 1", [$animeid]);
         return view('edit', ['anime' => $anime[0]]);
     }
-    public static function create(){
+    public static function create(): Factory|View|Application
+    {
         return view('create');
     }
     public static function ccreate($name,$nameEN,$nameJPS,$dates){
